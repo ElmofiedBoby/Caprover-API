@@ -553,11 +553,11 @@ class CaproverAPI:
         current_app_info['volumes'] = updated_volumes
 
         if port_mapping:
+            host_port, container_port = port_mapping.split(":")
             ports = [
                 {
                     "hostPort": host_port, "containerPort": container_port
-                } for port in port_mapping
-                for host_port, container_port in port.split(":")
+                }
             ]
         else:
             ports = None
